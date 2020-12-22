@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class NPCData : ScriptableObject
 {
-    [Header("第一段對話"),TextArea(1,6)]
+    [Header("第一段對話"),TextArea(2,6)]
     public string dialougeA;
-    [Header("第二段對話"), TextArea(1, 6)]
+    [Header("第二段對話"), TextArea(2,6)]
     public string dialougeB;
-    [Header("第三段對話"), TextArea(1, 6)]
+    [Header("第三段對話"), TextArea(2,6)]
     public string dialougeC;
     [Header("任務項目需求數量")]
     public int count;
