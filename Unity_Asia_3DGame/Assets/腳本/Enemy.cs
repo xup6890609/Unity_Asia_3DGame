@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
                 timer = 0;
                 if (Physics.Raycast(Attackpoint.position, Attackpoint.forward, out hit, attackLength, 1 << 8))    //物理.射線碰撞(攻擊中心點座標,攻擊中心點前方,攻擊長度,圖層)  //圖層：1<<圖層編號
                 {
-                    print(hit.collider.name);
+                    hit.collider.GetComponent<Robot>().Damage();           //碰撞物件.取得物件<玩家>().受傷();
                 } 
             }
         }

@@ -411,6 +411,18 @@ MonoBehaviour:
   cc: {fileID: 0}
   tpCamera: {fileID: 0}
   cameraMain: {fileID: 0}
+--- !u!114 &290000437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290000430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3652bb4488535cb4eb454545cbedefe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &312854612
 GameObject:
   m_ObjectHideFlags: 0
