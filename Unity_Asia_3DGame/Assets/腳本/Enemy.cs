@@ -7,6 +7,13 @@ public class Enemy : MonoBehaviour
     public float speed = 3;
     [Header("停止距離"), Range(0, 50)]
     public float stopDistance = 2f;
+    [Header("攻擊冷卻時間"), Range(0, 50)]
+    public float cd = 2f;
+    [Header("攻擊中心點")]
+    public Transform Attackpoint;
+    [Header("攻擊長度"), Range(0f, 5f)]
+    public float attackLength;
+    
 
     public float CD = 2f;
     private Transform player;
@@ -16,7 +23,6 @@ public class Enemy : MonoBehaviour
     /// 計時器
     /// </summary>
     private float timer;
-
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();                 // 取得身上元件<代理器>
@@ -35,6 +41,21 @@ public class Enemy : MonoBehaviour
         Track();
         Attack();
     }
+
+    /// <summary>
+    /// 射線擊中的物件
+    /// </summary>
+    private RaycastHit hit;
+
+    /// <summary>
+    /// 繪製圖示事件 (只在Unity內顯示)
+    /// </summary>
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;                                                       //圖示.顏色 = 紅色
+        Gizmos.DrawRay(Attackpoint.position, Attackpoint.forward * attackLength);       //(攻擊中心點座標,攻擊中心點前方*攻擊長度)
+    }
+
     /// <summary>
     /// 追蹤
     /// </summary>
@@ -65,6 +86,10 @@ public class Enemy : MonoBehaviour
             {
                 ani.SetTrigger("攻擊觸發");
                 timer = 0;
+                if (Physics.Raycast(Attackpoint.position, Attackpoint.forward, out hit, attackLength, 1 << 8))    //物理.射線碰撞(攻擊中心點座標,攻擊中心點前方,攻擊長度,圖層)  //圖層：1<<圖層編號
+                {
+                    print(hit.collider.name);
+                } 
             }
         }
     }
